@@ -23,13 +23,6 @@ export class NewPatientComponent implements OnInit {
       enfermedad: ['', Validators.required]
     });
 
-    /*
-        sexo: String;
-        revisado: Boolean;
-        fotoPersonal: String;
-        
-    */
-
    }
 
   ngOnInit(): void {
@@ -41,15 +34,31 @@ export class NewPatientComponent implements OnInit {
 
   async savePaciente(){
     console.log("savePaciente", this.pacienteForm.value);
+    console.log((<HTMLInputElement>document.querySelector('#input-revisado')).checked);
+    console.log((<HTMLInputElement>document.querySelector('#input-sexo')).value);
 
-    if(this.pacienteForm.invalid){
+    if(this.pacienteForm.invalid 
+      ||
+      (<HTMLInputElement>document.querySelector('#input-sexo')).value==''
+      ){
       return alert('campos invalidos');
     }
 
     const postObj: Paciente = {
-      ...this.pacienteForm.value
+      ...this.pacienteForm.value,
+      sexo: (<HTMLInputElement>document.querySelector('#input-sexo')).value,
+      revisado: (<HTMLInputElement>document.querySelector('#input-revisado')).checked,
+      fotoPersonal: ""
     };
-    await this.createPaciente(postObj);
+    console.log(postObj);
+    const request: any = await this.createPaciente(postObj);
+    console.log('savePaciente() response', request); // .errors?
+    if(request._id){
+
+    }else{
+      
+    }
+    
 
   }
   

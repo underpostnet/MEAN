@@ -27,6 +27,20 @@
                 formControlName="enfermedad"
                 placeholder="Enfermedad">
 
+                <div class="in" style="margin: 5px">
+                    Revisado
+                </div>
+
+                <input class='in' id="input-revisado" type="radio" >
+
+                <select class='in' id="input-sexo">
+                    <option value='' selected disabled style='display: none;'>
+                        Seleccionar Sexo
+                    </option>
+                    <option value='hombre'>Hombre</option>
+                    <option value='mujer'>Mujer</option>
+                </select>
+
                 <button type="submit"
                 [disabled]="pacienteForm.invalid"
                 class="in">
