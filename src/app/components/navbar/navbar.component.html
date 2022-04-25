@@ -8,9 +8,9 @@
                         cursor: pointer;
                         margin: 5px;
                 "
-                *ngFor="let item of dataNavBar; let indice=index">
+                *ngFor="let item of dataNavBar; let indice=index" routerLink="{{item.path}}">
 
-                    {{item}}
+                    {{item.name}}
                     
                 </div>
 

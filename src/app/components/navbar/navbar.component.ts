@@ -9,8 +9,23 @@ import { Component, OnInit } from '@angular/core';
 export class NavBarComponent implements OnInit {
   
   
-  dataNavBar: string[] = [
-    "Home", "NuevoRegistro", "Listar Registros", "Buscar Registro"
+  dataNavBar = [
+    {
+      name: "Home", 
+      path: "/"
+    },
+    {
+      name:"NuevoRegistro", 
+      path: "/registro/nuevo"
+    },
+    {
+      name: "Listar Registros", 
+      path: "/"
+    },
+    {
+      name: "Buscar Registro", 
+      path: "/"
+    }
   ];
 
   constructor() { }

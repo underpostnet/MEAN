@@ -4,13 +4,16 @@ import { RouterModule } from '@angular/router';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 import { HomeComponent } from './home/home.component';
+import { NuevoRegistroComponent } from './nuevo-registro/nuevo-registro.component';
 
 @NgModule({
   declarations: [
-    HomeComponent
+    HomeComponent,
+    NuevoRegistroComponent
   ],
   exports: [
-    HomeComponent
+    HomeComponent,
+    NuevoRegistroComponent
   ],
   imports: [ 
     CommonModule,
