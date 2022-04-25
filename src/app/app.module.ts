@@ -9,6 +9,8 @@ import { NavBarComponent } from './components/navbar/navbar.component';
 
 // Modulos
 import { PagesModule } from './pages/pages.module';
+
+// Servicios
 import { PacientesService } from './services/pacientes/pacientes.service';
 
 
