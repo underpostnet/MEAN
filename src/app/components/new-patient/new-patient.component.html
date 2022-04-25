@@ -1,5 +1,5 @@
 
-    <form 
+    <form  class="in" style="margin: auto; max-width: 300px"
     [formGroup]="pacienteForm"
     (submit)="savePaciente()">
 
@@ -7,9 +7,29 @@
                 formControlName="nombre"
                 placeholder="Nombre del paciente">
 
+                <input class='in' type="text" 
+                formControlName="rut"
+                placeholder="Rut">
+
+                <input class='in' type="number" 
+                formControlName="edad"
+                placeholder="Edad">
+
+                <div class="in" style="margin: 5px">
+                    Fecha Ingreso
+                </div>
+
+                <input class='in' type="date" 
+                formControlName="fechaIngreso"
+                placeholder="Fecha Ingreso">
+
+                <input class='in' type="text" 
+                formControlName="enfermedad"
+                placeholder="Enfermedad">
+
                 <button type="submit"
                 [disabled]="pacienteForm.invalid"
-                class="inl">
+                class="in">
                  
                     Enviar
                 

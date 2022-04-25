@@ -91,3 +91,12 @@ a {
 	outline: none !important;
 	border: none;
 }
+
+input {
+	padding: 10px;
+	margin: 5px;
+}
+button {
+	padding: 10px;
+	margin: 5px;
+}
