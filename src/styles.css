@@ -1,1 +1,93 @@
 /* You can add global styles to this file, and also import other style files */
+
+html {
+
+	scroll-behavior: smooth;
+
+}
+
+body {
+
+	padding: 0;
+	margin: 0;
+	font-family: arial;
+	/* background: black;
+	color: white; */
+
+}
+
+a {
+
+	color: magenta;
+
+}
+
+.fl {
+
+	position: relative;
+	display: flow-root;
+
+}
+
+.fll {
+
+	float: left;
+
+}
+
+.flr {
+
+	float: right;
+
+}
+
+.abs {
+
+	position: absolute;
+	display: block;
+
+}
+
+.in {
+
+	position: relative;
+	display: block;
+
+}
+
+.inl {
+
+	position: relative;
+	display: inline-table;
+
+}
+
+.fix {
+
+	position: fixed;
+	display: block;
+
+}
+
+.w-fit {
+	width: fit-content;
+}
+
+.w-fill {
+	width: -webkit-fill-available;
+}
+
+.center {
+
+	transform: translate(-50%,-50%);
+	top: 50%;
+	left: 50%;
+	width: 100%;
+	text-align: center;
+
+}
+
+.in-outline {
+	outline: none !important;
+	border: none;
+}

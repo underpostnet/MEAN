@@ -3,18 +3,19 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { DiscComponent } from './components/disc/disc.component';
-import { ArtistComponent } from './components/artist/artist.component';
+
+// Modulos
+import { PagesModule } from './pages/pages.module';
+
 
 @NgModule({
   declarations: [
-    AppComponent,
-    DiscComponent,
-    ArtistComponent
+    AppComponent
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    PagesModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

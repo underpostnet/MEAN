@@ -1,13 +1,18 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { ArtistComponent } from './components/artist/artist.component';
+
+// Modulos
+import { PagesRoutingModule } from './pages/pages.routing';
 
 const routes: Routes = [
-  {path: '', component: ArtistComponent}
+  
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes)],
+  imports: [
+    RouterModule.forRoot(routes), 
+    PagesRoutingModule
+  ],
   exports: [RouterModule]
 })
 
