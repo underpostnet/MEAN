@@ -1,3 +1,18 @@
 
+    <form 
+    [formGroup]="pacienteForm"
+    (submit)="savePaciente()">
 
-new patient
+                <input class='in' type="text" 
+                formControlName="nombre"
+                placeholder="Nombre del paciente">
+
+                <button type="submit"
+                [disabled]="pacienteForm.invalid"
+                class="inl">
+                 
+                    Enviar
+                
+                </button>
+
+    </form>

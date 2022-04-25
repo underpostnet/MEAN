@@ -13,7 +13,7 @@ export class PacientesService {
     }
 
     getPacientes() {
-        console.log(this.SERVICE_URL);
+        console.log("getPacientes()", this.SERVICE_URL);
         return this.http.get(this.SERVICE_URL);
     }
 
