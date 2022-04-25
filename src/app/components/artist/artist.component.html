@@ -1,0 +1,11 @@
+<div>
+    <h2>{{artist.name}}</h2>
+
+    <div *ngFor="let d of artist.discs">
+        <div>
+            <br>
+                <app-disc [disc]="d"></app-disc>            
+            <br>
+        </div>
+    </div>
+</div>
