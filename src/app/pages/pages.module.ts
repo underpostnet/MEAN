@@ -6,18 +6,24 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HomeComponent } from './home/home.component';
 import { NuevoRegistroComponent } from './nuevo-registro/nuevo-registro.component';
 import { NewPatientComponent } from '../components/new-patient/new-patient.component';
+import { TableRegistrosComponent } from '../components/table-registros/table-registros.component';
+import { ListarRegistrosComponent } from './listar-registros/listar-registros.component';
 
 
 @NgModule({
   declarations: [
     HomeComponent,
     NuevoRegistroComponent,
-    NewPatientComponent
+    NewPatientComponent,
+    TableRegistrosComponent,
+    ListarRegistrosComponent
   ],
   exports: [
     HomeComponent,
     NuevoRegistroComponent,
-    NewPatientComponent
+    NewPatientComponent,
+    TableRegistrosComponent,
+    ListarRegistrosComponent
   ],
   imports: [ 
     CommonModule,

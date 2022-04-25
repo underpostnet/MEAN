@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 import { Paciente } from 'src/app/models/paciente.model';
 import { PacientesService } from 'src/app/services/pacientes/pacientes.service';
 
@@ -13,7 +14,7 @@ export class NewPatientComponent implements OnInit {
   
   public pacienteForm: FormGroup;
 
-  constructor(private fb: FormBuilder, private pacientesService: PacientesService) {
+  constructor(private fb: FormBuilder, private pacientesService: PacientesService, private router: Router) {
 
     this.pacienteForm = this.fb.group({
       nombre: ['', Validators.required ],
@@ -54,11 +55,9 @@ export class NewPatientComponent implements OnInit {
     const request: any = await this.createPaciente(postObj);
     console.log('savePaciente() response', request); // .errors?
     if(request._id){
-
-    }else{
-      
+      return this.router.navigate(['/listar-todos'])
     }
-    
+    alert('error en el servicio');    
 
   }
   

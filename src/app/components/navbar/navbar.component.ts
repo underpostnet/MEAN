@@ -20,7 +20,7 @@ export class NavBarComponent implements OnInit {
     },
     {
       name: "Listar Registros", 
-      path: "/"
+      path: "/listar-todos"
     },
     {
       name: "Buscar Registro", 
