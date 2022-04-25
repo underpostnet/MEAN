@@ -2,15 +2,14 @@
 
 
 export interface Paciente {
-    _id: string;
-    rut: string;
-    nombre: string;
-    edad: number;
-    sexo: string
-    fotoPersonal: string;
+    rut: String;
+    nombre: String;
+    edad: Number;
+    sexo: String;
+    fotoPersonal: String;
     fechaIngreso: Date;
-    enfermedad: string;
-    revisado: boolean;
+    enfermedad: String;
+    revisado: Boolean;
 }
 
 
