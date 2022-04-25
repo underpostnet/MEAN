@@ -14,13 +14,31 @@ export class PacientesService {
     }
 
     getPacientes() {
-        console.log("getPacientes()", this.SERVICE_URL);
         return this.http.get(this.SERVICE_URL);
     }
 
     postPaciente(postObj: Paciente) {
-        console.log("postPaciente()", postObj);
         return this.http.post(this.SERVICE_URL, postObj);
+    }
+
+    getPaciente(id: String) {
+        return this.http.get(this.SERVICE_URL + '/' +id);
+    }
+
+    updatePaciente(postObj: Paciente, id: String){
+        return this.http.put(this.SERVICE_URL + '/' +id, postObj);
+    }
+
+    deletePaciente(id: String){
+        return this.http.delete(this.SERVICE_URL + '/' +id);
+    }
+
+    createImage(id: String, image: File){
+        return this.http.post(this.SERVICE_URL + '/uploads/' + id, image);
+    }
+
+    getImage(id: String){
+        return this.http.get(this.SERVICE_URL + '/uploads/' + id);
     }
 
 }

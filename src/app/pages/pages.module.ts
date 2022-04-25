@@ -8,6 +8,7 @@ import { NuevoRegistroComponent } from './nuevo-registro/nuevo-registro.componen
 import { NewPatientComponent } from '../components/new-patient/new-patient.component';
 import { TableRegistrosComponent } from '../components/table-registros/table-registros.component';
 import { ListarRegistrosComponent } from './listar-registros/listar-registros.component';
+import { ErrorComponent } from './error/error.component';
 
 
 @NgModule({
@@ -16,14 +17,16 @@ import { ListarRegistrosComponent } from './listar-registros/listar-registros.co
     NuevoRegistroComponent,
     NewPatientComponent,
     TableRegistrosComponent,
-    ListarRegistrosComponent
+    ListarRegistrosComponent,
+    ErrorComponent
   ],
   exports: [
     HomeComponent,
     NuevoRegistroComponent,
     NewPatientComponent,
     TableRegistrosComponent,
-    ListarRegistrosComponent
+    ListarRegistrosComponent,
+    ErrorComponent
   ],
   imports: [ 
     CommonModule,
