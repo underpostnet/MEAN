@@ -24,7 +24,7 @@ export class NavBarComponent implements OnInit {
     },
     {
       name: "Buscar Registro", 
-      path: "/"
+      path: "/registro/buscar"
     }
   ];
 

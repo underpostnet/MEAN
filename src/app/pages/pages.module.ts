@@ -9,6 +9,8 @@ import { NewPatientComponent } from '../components/new-patient/new-patient.compo
 import { TableRegistrosComponent } from '../components/table-registros/table-registros.component';
 import { ListarRegistrosComponent } from './listar-registros/listar-registros.component';
 import { ErrorComponent } from './error/error.component';
+import { SearchComponent } from '../components/search/search.component';
+import { BuscarRegistroComponent } from './buscar-registro/buscar-registro.component';
 
 
 @NgModule({
@@ -18,7 +20,9 @@ import { ErrorComponent } from './error/error.component';
     NewPatientComponent,
     TableRegistrosComponent,
     ListarRegistrosComponent,
-    ErrorComponent
+    ErrorComponent,
+    SearchComponent,
+    BuscarRegistroComponent
   ],
   exports: [
     HomeComponent,
@@ -26,7 +30,9 @@ import { ErrorComponent } from './error/error.component';
     NewPatientComponent,
     TableRegistrosComponent,
     ListarRegistrosComponent,
-    ErrorComponent
+    ErrorComponent,
+    SearchComponent,
+    BuscarRegistroComponent
   ],
   imports: [ 
     CommonModule,
