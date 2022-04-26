@@ -8,3 +8,47 @@
         <th> <img *ngIf="item.fotoPersonal!=''" src="{{item.fotoPersonal}}"> </th>
     </tr>
 </table> 
+
+
+
+
+<form  class="in" 
+[formGroup]="deletePacienteForm"
+(submit)="deletePaciente()">
+            
+            Eliminar Paciente
+
+            <input class='in' type="text" 
+            formControlName="id"
+            placeholder="ID del Paciente">
+
+            <button type="submit"
+            [disabled]="deletePacienteForm.invalid"
+            class="in">
+             
+                Eliminar
+            
+            </button>
+
+</form>
+
+
+<form  class="in" 
+[formGroup]="updatePacienteForm"
+(submit)="updatePaciente()">
+            
+            Actualizar Paciente
+
+            <input class='in' type="text" 
+            formControlName="id"
+            placeholder="ID del Paciente">
+
+            <button type="submit"
+            [disabled]="updatePacienteForm.invalid"
+            class="in">
+             
+                Actualizar
+            
+            </button>
+
+</form>

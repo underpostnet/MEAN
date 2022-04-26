@@ -1,6 +1,8 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { Paciente } from 'src/app/models/paciente.model';
 import { PacientesService } from 'src/app/services/pacientes/pacientes.service';
+import { FormGroup, FormBuilder, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-table-registros',
@@ -16,9 +18,18 @@ export class TableRegistrosComponent implements OnInit {
   dataTable: Paciente[] = [];
   keysTable: String[] = [];
   
+  public deletePacienteForm: FormGroup;
+  displayTable: boolean = true;
+
+  public updatePacienteForm: FormGroup;
   
-  constructor(private pacientesService: PacientesService) {
-    
+  constructor(private pacientesService: PacientesService, private fb: FormBuilder, private router: Router) {
+    this.deletePacienteForm = this.fb.group({
+      id: ['', Validators.required ]
+    });
+    this.updatePacienteForm = this.fb.group({
+      id: ['', Validators.required ]
+    });
    }
 
   ngOnInit(): void {
@@ -73,6 +84,22 @@ export class TableRegistrosComponent implements OnInit {
   getCellValue(key: any, item: any){
     return item[key];
   }
+
+  async updatePaciente(){
+    return this.router.navigate(['/registro/actualizar/'+this.updatePacienteForm.value.id])
+  }
+
+  async deletePaciente(){
+    this.pacientesService.deletePaciente(this.deletePacienteForm.value.id).subscribe( 
+      response => {
+        console.log("success deletePaciente() ", response);
+        this.router.navigate(['/registro/listar'])     
+      },
+      error => {
+        console.log("error deletePaciente() ", error);
+      }
+    )
+  } 
 
  
 
