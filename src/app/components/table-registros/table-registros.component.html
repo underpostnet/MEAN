@@ -1,2 +1,8 @@
-
-<pre> {{ dataTable }}</pre>
+<table>
+    <tr>
+        <th *ngFor="let key of keysTable"> {{key}}  </th>
+    </tr>
+    <tr *ngFor="let item of dataTable">
+        <th *ngFor="let key of keysTable"> {{getCellValue(key, item)}}  </th>
+    </tr>
+</table> 

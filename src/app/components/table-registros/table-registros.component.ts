@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { Paciente } from 'src/app/models/paciente.model';
 import { PacientesService } from 'src/app/services/pacientes/pacientes.service';
 
@@ -10,19 +10,42 @@ import { PacientesService } from 'src/app/services/pacientes/pacientes.service';
 })
 export class TableRegistrosComponent implements OnInit {
   
-  dataTable: String;
+  @Input () _input: any; 
+  @Output () _output: EventEmitter<any> = new EventEmitter();
+  
+  dataTable: Paciente[] = [];
+  keysTable: String[] = [];
   
   
   constructor(private pacientesService: PacientesService) {
-    this.dataTable = "no-data";
+    
    }
 
   ngOnInit(): void {
     this.init();
+    console.log(this._input)
   }
 
   async init(){
-    this.dataTable = JSON.stringify(await this.getPacientes(), null, 4);
+    let rawDataTable: any = await this.getPacientes();
+    if(this._input=="home"){
+
+      // listar ultimos 5
+      rawDataTable = 
+      rawDataTable.sort( (a: any, b: any) =>  
+      new Date(b["fechaIngreso"]).getTime() - new Date(a["fechaIngreso"]).getTime() );
+
+      rawDataTable = 
+      rawDataTable.filter( (v: any, i: any) => i < 5 );
+
+    }
+    console.log(rawDataTable);
+    rawDataTable.map( (paciente: Paciente) => 
+      this.dataTable.push(paciente)
+    );
+    rawDataTable[0] ?
+    this.keysTable = Object.keys(rawDataTable[0]):
+    null;       
   }
 
   async getPacientes(){
@@ -38,6 +61,10 @@ export class TableRegistrosComponent implements OnInit {
         }
       )
     )
+  }
+
+  getCellValue(key: any, item: any){
+    return item[key];
   }
 
  
