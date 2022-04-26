@@ -41,6 +41,12 @@
                     <option value='mujer'>Mujer</option>
                 </select>
 
+                <div class="in" style="margin: 5px">
+                    Foto Personal
+                </div>
+
+                <input (change)="handleFileInput($event)" type="file" accept=".jpg,.png" >
+
                 <button type="submit"
                 [disabled]="pacienteForm.invalid"
                 class="in">

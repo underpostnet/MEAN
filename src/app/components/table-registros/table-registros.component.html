@@ -1,8 +1,10 @@
 <table>
     <tr>
         <th *ngFor="let key of keysTable"> {{key}}  </th>
+        <th *ngIf="keysTable.length > 0"> Foto Personal  </th>
     </tr>
     <tr *ngFor="let item of dataTable">
         <th *ngFor="let key of keysTable"> {{getCellValue(key, item)}}  </th>
+        <th> <img *ngIf="item.fotoPersonal!=''" src="{{item.fotoPersonal}}"> </th>
     </tr>
 </table> 

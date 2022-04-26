@@ -13,6 +13,7 @@ import { PacientesService } from 'src/app/services/pacientes/pacientes.service';
 export class NewPatientComponent implements OnInit {
   
   public pacienteForm: FormGroup;
+  fotoPersonal: String = "";
 
   constructor(private fb: FormBuilder, private pacientesService: PacientesService, private router: Router) {
 
@@ -49,15 +50,54 @@ export class NewPatientComponent implements OnInit {
       ...this.pacienteForm.value,
       sexo: (<HTMLInputElement>document.querySelector('#input-sexo')).value,
       revisado: (<HTMLInputElement>document.querySelector('#input-revisado')).checked,
-      fotoPersonal: ""
+      fotoPersonal: this.fotoPersonal
     };
-    console.log(postObj);
+  
+
+    function getSizeJSON(obj: any){
+      const size_ = new TextEncoder().encode(JSON.stringify(obj)).length;
+      const kiloBytes_ = size_ / 1024;
+      const megaBytes_ = kiloBytes_ / 1024;
+      return {
+        size: size_,
+        kiloBytes: kiloBytes_,
+        megaBytes: megaBytes_
+      }
+    }
+
+    console.log("postObj", postObj);
+    console.log(getSizeJSON(postObj));
+
     const request: any = await this.createPaciente(postObj);
     console.log('savePaciente() response', request); // .errors?
     if(request._id){
       return this.router.navigate(['/listar-todos'])
     }
     alert('error en el servicio');    
+
+  }
+
+  
+
+  async handleFileInput(event: any){
+
+    const toBase64 = (file: File) => new Promise((resolve, reject) => {
+        const reader = new FileReader();
+        reader.readAsDataURL(file);
+        reader.onload = () => resolve(reader.result);
+        reader.onerror = error => reject(error);
+    });
+
+    console.log('handleFileInput', event);
+     /*Maximum allowed size in bytes
+        20MB */
+    const maxAllowedSize = 20 * 1024 * 1024;
+    if (event.target.files[0].size > maxAllowedSize) {
+      // Here you can ask your users to load correct file
+      alert('archivo supera limite de peso');
+    }else{
+      this.fotoPersonal = "" + await toBase64(event.target.files[0]);
+    }
 
   }
   
