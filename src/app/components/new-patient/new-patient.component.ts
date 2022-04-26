@@ -93,7 +93,10 @@ export class NewPatientComponent implements OnInit {
       const request: any = await this.createPaciente(postObj);
       console.log('savePaciente() response', request); // .errors?
       if(request._id){
-        return this.router.navigate(['/reigistro/listar-todos'])
+        return this.router.navigate(['/registro/listar-todos'])
+      }
+      if(request.keyPattern){
+        return alert('campos invalidos '+Object.keys(request.keyPattern).join(' ')); 
       }
     }
     alert('error en el servicio');    
