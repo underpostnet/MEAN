@@ -6,11 +6,13 @@ import { NuevoRegistroComponent } from './nuevo-registro/nuevo-registro.componen
 import { ListarRegistrosComponent } from './listar-registros/listar-registros.component';
 import { ErrorComponent } from './error/error.component';
 import { BuscarRegistroComponent } from './buscar-registro/buscar-registro.component';
+import { DetalleRegistroComponent } from './detalle-registro/detalle-registro.component';
 
 const routes: Routes = [
     { path: '', component: HomeComponent },
     { path: 'home', component: HomeComponent },
     { path: 'registro/nuevo', component: NuevoRegistroComponent },
+    { path: 'registro/detalle/:id', component: DetalleRegistroComponent },   
     { path: 'registro/buscar', component: BuscarRegistroComponent },    
     { path: 'listar-todos', component: ListarRegistrosComponent },
     { path: '**', component: ErrorComponent }

@@ -11,6 +11,7 @@ import { ListarRegistrosComponent } from './listar-registros/listar-registros.co
 import { ErrorComponent } from './error/error.component';
 import { SearchComponent } from '../components/search/search.component';
 import { BuscarRegistroComponent } from './buscar-registro/buscar-registro.component';
+import { DetalleRegistroComponent } from './detalle-registro/detalle-registro.component';
 
 
 @NgModule({
@@ -22,7 +23,8 @@ import { BuscarRegistroComponent } from './buscar-registro/buscar-registro.compo
     ListarRegistrosComponent,
     ErrorComponent,
     SearchComponent,
-    BuscarRegistroComponent
+    BuscarRegistroComponent,
+    DetalleRegistroComponent
   ],
   exports: [
     HomeComponent,
@@ -32,7 +34,8 @@ import { BuscarRegistroComponent } from './buscar-registro/buscar-registro.compo
     ListarRegistrosComponent,
     ErrorComponent,
     SearchComponent,
-    BuscarRegistroComponent
+    BuscarRegistroComponent,
+    DetalleRegistroComponent
   ],
   imports: [ 
     CommonModule,
