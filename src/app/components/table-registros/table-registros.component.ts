@@ -23,7 +23,6 @@ export class TableRegistrosComponent implements OnInit {
 
   ngOnInit(): void {
     this.init();
-    console.log(this._input)
   }
 
   async init(){
