@@ -27,17 +27,24 @@ export class TableRegistrosComponent implements OnInit {
 
   async init(){
     let rawDataTable: any = await this.getPacientes();
-    if(this._input=="home"){
 
+    if(this._input=="home"){
       // listar ultimos 5
       rawDataTable = 
       rawDataTable.sort( (a: any, b: any) =>  
       new Date(b["fechaIngreso"]).getTime() - new Date(a["fechaIngreso"]).getTime() );
-
       rawDataTable = 
       rawDataTable.filter( (v: any, i: any) => i < 5 );
-
     }
+
+    if(this._input=='detalle'){
+      console.log(location.href.split('/').pop());
+      rawDataTable = rawDataTable.filter( 
+        (paciente: any) => 
+        paciente._id == location.href.split('/').pop()
+        );
+    }
+    
     console.log(rawDataTable);
     rawDataTable.map( (paciente: Paciente) => 
       this.dataTable.push(paciente)
