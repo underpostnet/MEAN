@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 import { PacientesService } from 'src/app/services/pacientes/pacientes.service';
 
 @Component({
@@ -13,13 +14,22 @@ export class ListarRegistrosComponent implements OnInit {
   public deletePacienteForm: FormGroup;
   displayTable: boolean = true;
 
-  constructor(private fb: FormBuilder, private pacientesService: PacientesService) { 
+  public updatePacienteForm: FormGroup;
+
+  constructor(private fb: FormBuilder, private pacientesService: PacientesService, private router: Router) { 
     this.deletePacienteForm = this.fb.group({
+      id: ['', Validators.required ]
+    });
+    this.updatePacienteForm = this.fb.group({
       id: ['', Validators.required ]
     });
   }
 
   ngOnInit(): void {
+  }
+
+  async updatePaciente(){
+    return this.router.navigate(['/registro/actualizar/'+this.updatePacienteForm.value.id])
   }
 
   async deletePaciente(){
