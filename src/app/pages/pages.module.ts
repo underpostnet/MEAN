@@ -14,6 +14,7 @@ import { BuscarRegistroComponent } from './buscar-registro/buscar-registro.compo
 import { DetalleRegistroComponent } from './detalle-registro/detalle-registro.component';
 import { ActualizarRegistroComponent } from './actualizar-registro/actualizar-registro.component';
 import { BusquedaRegistroComponent } from './busqueda-registro/busqueda-registro.component';
+import { ListarRegistroComponent } from './listar-registro/listar-registro.component';
 
 
 @NgModule({
@@ -28,7 +29,8 @@ import { BusquedaRegistroComponent } from './busqueda-registro/busqueda-registro
     BuscarRegistroComponent,
     DetalleRegistroComponent,
     ActualizarRegistroComponent,
-    BusquedaRegistroComponent
+    BusquedaRegistroComponent,
+    ListarRegistroComponent
   ],
   exports: [
     HomeComponent,
@@ -41,7 +43,8 @@ import { BusquedaRegistroComponent } from './busqueda-registro/busqueda-registro
     BuscarRegistroComponent,
     DetalleRegistroComponent,
     ActualizarRegistroComponent,
-    BusquedaRegistroComponent
+    BusquedaRegistroComponent,
+    ListarRegistroComponent
   ],
   imports: [ 
     CommonModule,

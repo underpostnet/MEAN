@@ -9,6 +9,7 @@ import { BuscarRegistroComponent } from './buscar-registro/buscar-registro.compo
 import { DetalleRegistroComponent } from './detalle-registro/detalle-registro.component';
 import { ActualizarRegistroComponent } from './actualizar-registro/actualizar-registro.component';
 import { BusquedaRegistroComponent } from './busqueda-registro/busqueda-registro.component';
+import { ListarRegistroComponent } from './listar-registro/listar-registro.component';
 
 const routes: Routes = [
     { path: '', component: HomeComponent },
@@ -18,7 +19,8 @@ const routes: Routes = [
     { path: 'registro/buscar', component: BuscarRegistroComponent },  
     { path: 'registro/busqueda/:search', component: BusquedaRegistroComponent},
     { path: 'registro/actualizar/:id', component: ActualizarRegistroComponent},
-    { path: 'listar-todos', component: ListarRegistrosComponent },
+    { path: 'registro/listar', component: ListarRegistroComponent },
+    { path: 'registro/listar-todos', component: ListarRegistrosComponent },
     { path: '**', component: ErrorComponent }
 ];
 
