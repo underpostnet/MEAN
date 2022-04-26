@@ -17,6 +17,7 @@ export class NewPatientComponent implements OnInit {
   
   public pacienteForm: FormGroup;
   fotoPersonal: String = "";
+  updateID: String = "";
 
   constructor(private fb: FormBuilder, private pacientesService: PacientesService, private router: Router) {
 
@@ -31,11 +32,22 @@ export class NewPatientComponent implements OnInit {
    }
 
   ngOnInit(): void {
-    if(this._input=='actualizar'){
-      alert('actualizar')
-    }    
+    this.init();
   }
 
+  async init(){
+    if(this._input=='actualizar'){
+
+      const idAct = location.href.split('/').pop();
+      const request: any = await this.getPaciente(idAct ? idAct: "");
+      console.log('getPaciente', request);
+
+      this.updateID = idAct ? idAct : "";
+    
+      this.pacienteForm.patchValue(request);
+      
+    }   
+  }
   // eventos
 
   async savePaciente(){
@@ -72,10 +84,17 @@ export class NewPatientComponent implements OnInit {
     console.log("postObj", postObj);
     console.log(getSizeJSON(postObj));
 
-    const request: any = await this.createPaciente(postObj);
-    console.log('savePaciente() response', request); // .errors?
-    if(request._id){
-      return this.router.navigate(['/listar-todos'])
+    if(this._input=='actualizar'){
+      const request: any = await this.updatePaciente(this.updateID, postObj);
+      if(request._id){
+        return this.router.navigate(['/registro/detalle/'+this.updateID]);
+      }
+    }else {
+      const request: any = await this.createPaciente(postObj);
+      console.log('savePaciente() response', request); // .errors?
+      if(request._id){
+        return this.router.navigate(['/listar-todos'])
+      }
     }
     alert('error en el servicio');    
 
@@ -120,6 +139,36 @@ export class NewPatientComponent implements OnInit {
         }
       )
     )
+  }
+
+  async updatePaciente(id: String, postObj: Paciente){
+    return new Promise( (resolve, reject) => 
+      this.pacientesService.updatePaciente(postObj, id).subscribe( 
+        response => {
+          console.log("success postPaciente() ", response);
+          resolve(response);
+        },
+        error => {
+          console.log("error postPaciente() ", error);
+          reject(error);
+        }
+      )
+    );
+  }
+
+  async getPaciente(id: String){
+    return new Promise( (resolve, reject) => 
+      this.pacientesService.getPaciente(id).subscribe( 
+        response => {
+          console.log("success postPaciente() ", response);
+          resolve(response);
+        },
+        error => {
+          console.log("error postPaciente() ", error);
+          reject(error);
+        }
+      )
+    );
   }
 
 }
