@@ -16,13 +16,14 @@ export class TableRegistrosComponent implements OnInit {
   @Output () _output: EventEmitter<any> = new EventEmitter();
   
   dataTable: Paciente[] = [];
+  originDataTable: Paciente[] = [];
   keysTable: String[] = [];
   
   public deletePacienteForm: FormGroup;
   displayTable: boolean = true;
 
   public updatePacienteForm: FormGroup;
-  
+
   constructor(private pacientesService: PacientesService, private fb: FormBuilder, private router: Router) {
     this.deletePacienteForm = this.fb.group({
       id: ['', Validators.required ]
@@ -58,8 +59,12 @@ export class TableRegistrosComponent implements OnInit {
     }
     
     console.log(rawDataTable);
+    this._input != 'busqueda' ?
     rawDataTable.map( (paciente: Paciente) => 
       this.dataTable.push(paciente)
+    ) : null;
+    rawDataTable.map( (paciente: Paciente) => 
+      this.originDataTable.push(paciente)
     );
     rawDataTable[0] ?
     this.keysTable = Object.keys(rawDataTable[0]).filter(key=>key!="fotoPersonal"):
@@ -100,6 +105,32 @@ export class TableRegistrosComponent implements OnInit {
       }
     )
   } 
+
+  async toSearch(type: any){
+
+    console.log('toSearch', type);
+
+    if(type=='sexo'){
+      this.dataTable = this.originDataTable.filter( 
+        paciente => paciente.sexo == (<HTMLInputElement>document.querySelector('#input-sexo')).value
+        );
+     }
+     if(type=='enfermedad'){
+      this.dataTable = this.originDataTable.filter( 
+        paciente => paciente.enfermedad == (<HTMLInputElement>document.querySelector('#input-enfermedad')).value
+        );
+     }
+
+     if(type=='fechaIngreso'){
+      this.dataTable = this.originDataTable.filter( 
+        paciente => 
+        new Date(paciente.fechaIngreso).toISOString().split('T')[0]
+        ==
+        (<HTMLInputElement>document.querySelector('#input-fechaIngreso')).value 
+        );
+     }
+
+  }
 
  
 

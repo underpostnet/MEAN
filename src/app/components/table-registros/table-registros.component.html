@@ -1,4 +1,4 @@
-<table>
+<table *ngIf="dataTable.length > 0">
     <tr>
         <th *ngFor="let key of keysTable"> {{key}}  </th>
         <th *ngIf="keysTable.length > 0"> Foto Personal  </th>
@@ -12,7 +12,7 @@
 
 
 
-<form  class="in" 
+<form  class="in" *ngIf="_input=='detalle'"
 [formGroup]="deletePacienteForm"
 (submit)="deletePaciente()">
             
@@ -33,7 +33,7 @@
 </form>
 
 
-<form  class="in" 
+<form  class="in" *ngIf="_input=='detalle'"
 [formGroup]="updatePacienteForm"
 (submit)="updatePaciente()">
             
@@ -52,3 +52,42 @@
             </button>
 
 </form>
+
+
+<div *ngIf="_input=='busqueda'" >
+
+    <form  class="in" 
+        (submit)="toSearch('sexo')">
+                    <select class='in' id="input-sexo">
+                        <option value='' selected disabled style='display: none;'>
+                            Seleccionar Sexo
+                        </option>
+                        <option value='hombre'>Hombre</option>
+                        <option value='mujer'>Mujer</option>
+                    </select>
+                    <button class="in">
+                        Buscar por sexo 
+                    </button>
+        </form>
+
+        <form  class="in" 
+        (submit)="toSearch('enfermedad')">  
+                    <input class='in' type="text"  
+                    id="input-enfermedad"
+                    placeholder="Enfermedad">
+                    <button class="in">
+                        Buscar por Enfermedad
+                    </button>
+        </form>
+
+
+        <form  class="in" 
+        (submit)="toSearch('fechaIngreso')">
+                    <input class='in' type="date" id="input-fechaIngreso" >
+                    <button class="in">
+                        Buscar por Fecha
+                    </button>
+        </form>
+
+</div>
+
