@@ -12,6 +12,7 @@ import { ErrorComponent } from './error/error.component';
 import { SearchComponent } from '../components/search/search.component';
 import { BuscarRegistroComponent } from './buscar-registro/buscar-registro.component';
 import { DetalleRegistroComponent } from './detalle-registro/detalle-registro.component';
+import { ActualizarRegistroComponent } from './actualizar-registro/actualizar-registro.component';
 
 
 @NgModule({
@@ -24,7 +25,8 @@ import { DetalleRegistroComponent } from './detalle-registro/detalle-registro.co
     ErrorComponent,
     SearchComponent,
     BuscarRegistroComponent,
-    DetalleRegistroComponent
+    DetalleRegistroComponent,
+    ActualizarRegistroComponent
   ],
   exports: [
     HomeComponent,
@@ -35,7 +37,8 @@ import { DetalleRegistroComponent } from './detalle-registro/detalle-registro.co
     ErrorComponent,
     SearchComponent,
     BuscarRegistroComponent,
-    DetalleRegistroComponent
+    DetalleRegistroComponent,
+    ActualizarRegistroComponent
   ],
   imports: [ 
     CommonModule,

@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { Paciente } from 'src/app/models/paciente.model';
@@ -11,6 +11,9 @@ import { PacientesService } from 'src/app/services/pacientes/pacientes.service';
   ]
 })
 export class NewPatientComponent implements OnInit {
+
+  @Input () _input: any; 
+  @Output () _output: EventEmitter<any> = new EventEmitter();
   
   public pacienteForm: FormGroup;
   fotoPersonal: String = "";
@@ -28,8 +31,9 @@ export class NewPatientComponent implements OnInit {
    }
 
   ngOnInit(): void {
-
-    
+    if(this._input=='actualizar'){
+      alert('actualizar')
+    }    
   }
 
   // eventos
