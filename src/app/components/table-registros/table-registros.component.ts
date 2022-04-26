@@ -38,6 +38,7 @@ export class TableRegistrosComponent implements OnInit {
     }
 
     if(this._input=='detalle'){
+      // solo mostrar paciente que coincida id por parametro URI
       console.log(location.href.split('/').pop());
       rawDataTable = rawDataTable.filter( 
         (paciente: any) => 
