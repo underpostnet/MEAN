@@ -1,1 +1,27 @@
-<app-table-registros></app-table-registros>
+
+
+<app-table-registros *ngIf="displayTable" ></app-table-registros>
+
+
+
+<form  class="in" 
+[formGroup]="deletePacienteForm"
+(submit)="deletePaciente()">
+            
+            Eliminar Paciente
+
+            <input class='in' type="text" 
+            formControlName="id"
+            placeholder="ID del Paciente">
+
+            <button type="submit"
+            [disabled]="deletePacienteForm.invalid"
+            class="in">
+             
+                Eliminar
+            
+            </button>
+
+</form>
+
+
