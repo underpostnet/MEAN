@@ -3,16 +3,19 @@
     <table class="w3-table-all" *ngIf="dataTable.length > 0">
         <thead>
                 <tr class="w3-blue" >
-                    <th *ngFor="let key of keysTable"> {{key}}  </th>
-                    <th *ngIf="keysTable.length > 0"> Foto Personal  </th>
+                    <!-- <th *ngFor="let key of keysTable"> {{key}}  </th> -->
 
-                    <th *ngIf="_input=='detalle'">
-                       
-                    </th>
-
-                    <th *ngIf="_input=='detalle'">
-                        
-                    </th>
+                    <th> Id </th>
+                    <th> Rut </th>
+                    <th> Nombre </th>
+                    <th> Edad </th>
+                    <th> Sexo </th>
+                    <th> Fecha Ingreso </th>
+                    <th> Enfermedad </th>
+                    <th> Revisado </th>
+                    <th> Foto Personal </th>
+                    <th *ngIf="_input=='detalle'"></th>
+                    <th *ngIf="_input=='detalle'"></th>
 
                 </tr>
         </thead>

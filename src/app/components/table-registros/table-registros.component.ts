@@ -70,7 +70,7 @@ export class TableRegistrosComponent implements OnInit {
       this.originDataTable.push(paciente)
     );
     rawDataTable[0] ?
-    this.keysTable = Object.keys(rawDataTable[0]).filter(key=>key!="fotoPersonal"):
+    this.keysTable = Object.keys(rawDataTable[0]).filter(key=>key!="fotoPersonal" && key!="__v"):
     null;       
   }
 
