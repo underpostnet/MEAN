@@ -4,17 +4,16 @@
 [formGroup]="searchPacienteForm"
 (submit)="searchPaciente()">
             
-            Buscar Paciente
 
-            <input class='in' type="text" 
+            <input class='inl' type="text" 
             formControlName="id"
             placeholder="ID del Paciente">
 
             <button type="submit"
             [disabled]="searchPacienteForm.invalid"
-            class="in">
+            class="inl">
              
-                Buscar
+                <i class="fa fa-search"></i>
             
             </button>
 
