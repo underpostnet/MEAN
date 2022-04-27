@@ -5,17 +5,33 @@
                 <tr class="w3-blue" >
                     <th *ngFor="let key of keysTable"> {{key}}  </th>
                     <th *ngIf="keysTable.length > 0"> Foto Personal  </th>
+
+                    <th *ngIf="_input=='detalle'">
+                       
+                    </th>
+
+                    <th *ngIf="_input=='detalle'">
+                        
+                    </th>
+
                 </tr>
         </thead>
         <tr *ngFor="let item of dataTable">
             <th *ngFor="let key of keysTable"> {{getCellValue(key, item)}}  </th>
             <th> <img *ngIf="item.fotoPersonal!=''" src="{{item.fotoPersonal}}"> </th>
+            <th *ngIf="_input=='detalle'" (click)="updatePaciente()" style="cursor: pointer">
+                <i class="fa fa-pencil-square-o" aria-hidden="true"></i>
+            </th>
+
+            <th *ngIf="_input=='detalle'" (click)="deletePaciente()" style="cursor: pointer">
+                <i class="fa fa-trash-o" aria-hidden="true"></i>
+            </th>
         </tr>
     </table> 
 </div>
 
 
-<form  class="section-form" *ngIf="_input=='detalle'"
+<!-- <form  class="section-form" *ngIf="_input=='detalle'"
 [formGroup]="deletePacienteForm"
 (submit)="deletePaciente()">
             
@@ -54,7 +70,7 @@
             
             </button>
 
-</form>
+</form> -->
 
 
 <div *ngIf="_input=='busqueda'" >

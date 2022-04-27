@@ -51,10 +51,13 @@ export class TableRegistrosComponent implements OnInit {
 
     if(this._input=='detalle'){
       // solo mostrar paciente que coincida id por parametro URI
-      console.log(location.href.split('/').pop());
+      const uriID = location.href.split('/').pop();
+      console.log('detalle', uriID);
+      this.deletePacienteForm.value.id = uriID;
+      this.updatePacienteForm.value.id = uriID;
       rawDataTable = rawDataTable.filter( 
         (paciente: any) => 
-        paciente._id == location.href.split('/').pop()
+        paciente._id == uriID
         );
     }
     
