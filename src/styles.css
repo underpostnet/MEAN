@@ -104,10 +104,15 @@ input, button, select, option {
 	margin: 4px 2px;
 	cursor: pointer;
 	border-radius: 3px;
+	transition: .3s;
 }
 
 button {
 	text-align: center;
+}
+
+button:hover {
+	background-color: #1682da;
 }
 
 input {
@@ -155,4 +160,6 @@ th {
 	text-align: center; 
 	background-color: #e2e2e2; 
 	padding: 5px;
+	width: 100%;
+	z-index: 9999;
 }
