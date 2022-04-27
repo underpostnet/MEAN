@@ -1,15 +1,23 @@
-<div class="fix navbar">
 
-                <button class="inl"
-                *ngFor="let item of dataNavBar; let indice=index" routerLink="{{item.path}}">
 
-                    {{item.name}}
-                    
-                </button>
+<nav class="navbar-inverse">
+    <div class="container-fluid">
+      <!-- <div class="navbar-header">
+        <a class="navbar-brand" href="#">WebSiteName</a>
+      </div> -->
+      <ul class="nav navbar-nav">
+      
+       <li *ngFor="let item of dataNavBar; let indice=index" routerLink="{{item.path}}" 
+       style="cursor: pointer; font-weight: bold"> <a>
 
-                <div class="inl">
-                    <app-search></app-search>
-                </div>
+            {{item.name}}
+            
+       </a></li>
+      </ul>
+     
+      <div class="in flr">
+        <app-search></app-search>
+      </div>
+    </div>
+  </nav>
 
-</div>
-<br><br><br>

@@ -2,6 +2,7 @@
 
 
 export interface Paciente {
+    _id: String;
     rut: String;
     nombre: String;
     edad: Number;

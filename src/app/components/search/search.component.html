@@ -1,21 +1,24 @@
 
 
-<form  class="in" 
+<form  class="navbar-form navbar-left"
 [formGroup]="searchPacienteForm"
 (submit)="searchPaciente()">
-            
+            <div class="form-group">
+                <input class="form-control"  type="text" 
+                formControlName="id"
+                placeholder="ID del Paciente">
+    
+                <button type="submit"
+                [disabled]="searchPacienteForm.invalid"
+                class="btn btn-default">
+                 
+                    <i class="fa fa-search"></i>
+                
+                </button>
 
-            <input class='inl' type="text" 
-            formControlName="id"
-            placeholder="ID del Paciente">
+            </div>
 
-            <button type="submit"
-            [disabled]="searchPacienteForm.invalid"
-            class="inl">
-             
-                <i class="fa fa-search"></i>
-            
-            </button>
+        
 
 </form>
 

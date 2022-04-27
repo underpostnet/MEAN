@@ -135,6 +135,18 @@ export class TableRegistrosComponent implements OnInit {
 
   }
 
- 
+  viewImg(event: any){
+
+    console.log('viewImg', event);
+
+    (<HTMLInputElement>document.querySelector('#ver-foto-icon-'+event._id)) ?
+    (<HTMLInputElement>document.querySelector('#ver-foto-icon-'+event._id)).style.display = 'none'
+    :null;
+    
+    (<HTMLInputElement>document.querySelector('#ver-foto-img-'+event._id)) ?
+    (<HTMLInputElement>document.querySelector('#ver-foto-img-'+event._id)).style.display = 'block'
+    :null;
+
+  }
 
 }

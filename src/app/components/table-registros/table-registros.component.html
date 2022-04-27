@@ -1,5 +1,5 @@
 
- <div class="w3-container">
+ <div class="w3-container" style="margin-top: 20px">
     <table class="w3-table-all" *ngIf="dataTable.length > 0">
         <thead>
                 <tr class="w3-blue" >
@@ -18,7 +18,14 @@
         </thead>
         <tr *ngFor="let item of dataTable">
             <th *ngFor="let key of keysTable"> {{getCellValue(key, item)}}  </th>
-            <th> <img *ngIf="item.fotoPersonal!=''" src="{{item.fotoPersonal}}"> </th>
+            <th (click)="viewImg(item)" style="cursor: pointer">
+
+                 <span  *ngIf="item.fotoPersonal!=''" id="ver-foto-icon-{{item._id}}"
+                  style="text-decoration: underline">Ver Foto</span>
+
+                 <img id="ver-foto-img-{{item._id}}" src="{{item.fotoPersonal}}" style="display: none"> 
+
+            </th>
             <th *ngIf="_input=='detalle'" (click)="updatePaciente()" style="cursor: pointer">
                 <i class="fa fa-pencil-square-o" aria-hidden="true"></i>
             </th>

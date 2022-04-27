@@ -15,7 +15,7 @@ export class NavBarComponent implements OnInit {
       path: "/"
     },
     {
-      name:"NuevoRegistro", 
+      name:"Nuevo Registro", 
       path: "/registro/nuevo"
     },
     {
